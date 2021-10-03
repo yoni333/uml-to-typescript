@@ -18,7 +18,7 @@ export class AppComponent {
 
       ],
       methods:[
-        { name: 'upgrade', type: 'private', ts: 'integer' ,returnTs:"string"},
+        { name: 'upgrade', type: 'private', ts: 'x integer' ,returnTs:"string",text:"return x*x",show:false},
       ]
     },
   ];
