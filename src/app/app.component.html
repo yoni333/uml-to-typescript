@@ -1,0 +1,19 @@
+<hello name="{{ name }}"></hello>
+<p>Start editing to see some magic happen :)</p>
+<div *ngFor="let item of classUml" class="class-uml">
+  {{ item.name }}
+  <hr />
+  <div *ngFor="let prop of item.props">
+    <span>{{ prop.type }} </span>
+    <span>{{ prop.name }} </span>
+    <span>{{ prop.ts }} </span>
+  </div>
+  <hr>
+  <div *ngFor="let prop of item.methods">
+  <span>{{ prop.type }} </span>
+  <span>{{ prop.name }} </span>
+  <span> ( {{ prop.ts }} ) </span>
+  <span>:{{ prop.returnTs }} </span>
+</div>
+
+</div>
