@@ -7,12 +7,14 @@ import { HelloComponent } from './hello.component';
 import { PropComponent } from './prop.component';
 import { MethodComponent } from './method.component';
 import { AccessibilityComponent } from './accessibility.component';
+import { ClassComponent } from './class.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
   declarations: [
     AppComponent,
     HelloComponent,
+    ClassComponent,
     MethodComponent,
     PropComponent,
     AccessibilityComponent,

@@ -2,12 +2,3 @@ p {
   font-family: Lato;
 }
 
-.class-uml {
-  max-width: 300px;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 0.2rem;
-}
-.open:hover {
-  cursor: pointer;
-}

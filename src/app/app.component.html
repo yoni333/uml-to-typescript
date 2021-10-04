@@ -1,13 +1,5 @@
 <hello name="{{ name }}"></hello>
 <p>Start editing to see some magic happen :)</p>
-<div *ngFor="let item of classUml" class="class-uml">
-  {{ item.name }}
-  <hr />
-  <div *ngFor="let prop of item.props">
-    <prop [prop]="prop"></prop>
-  </div>
-  <hr />
-  <div *ngFor="let method of item.methods">
-    <method [method]="method"></method>
-  </div>
-</div>
+<ng-container *ngFor="let item of classUml">
+  <class [class]="item"></class>
+</ng-container>

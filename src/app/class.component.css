@@ -1,0 +1,11 @@
+.class-uml {
+  max-width: 300px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.2rem;
+  margin: 0.5rem;
+  margin-top: 1rem;
+}
+.open:hover {
+  cursor: pointer;
+}
