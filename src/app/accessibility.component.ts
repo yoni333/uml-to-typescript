@@ -16,10 +16,10 @@ import { method, prop } from './class.type';
   </ng-container>
   <ng-template #propEditType >
   
-      <span (click)="accessibility = !accessibility">{{ prop.accessibility }} </span>
+      <span (click)="accessibility = !accessibility" class="accessibility-color">{{ prop.accessibility }} </span>
   </ng-template>
   `,
-  styles: [``],
+  styles: [`.accessibility-color {color:blue}`],
 })
 export class AccessibilityComponent {
   @Input() prop: prop | method;
