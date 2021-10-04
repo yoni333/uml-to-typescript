@@ -4,23 +4,10 @@
   {{ item.name }}
   <hr />
   <div *ngFor="let prop of item.props">
-    <span>{{ prop.type }} </span>
-    <b>{{ prop.name }} </b>
-    <span>{{ prop.ts }} </span>
+    <prop [prop]="prop"></prop>
   </div>
   <hr />
-  <div *ngFor="let prop of item.methods">
-    <b>
-      <span>{{ prop.type }} </span>
-      <span>{{ prop.name }} </span>
-      <span> ( {{ prop.ts }} ) </span>
-      <span>:{{ prop.returnTs }} </span>
-      <span (click)="prop.show = !prop.show">&#123; + &#125;</span>
-    </b>
-    <div *ngIf="prop.show">
-      <div>&#123;</div>
-      <code>{{ prop.text }}</code>
-      <div>&#125;</div>
-    </div>
+  <div *ngFor="let method of item.methods">
+    <method [method]="method"></method>
   </div>
 </div>

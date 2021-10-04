@@ -1,4 +1,5 @@
 import { Component, VERSION } from '@angular/core';
+import { classUml, Eprop } from './class.type';
 
 @Component({
   selector: 'my-app',
@@ -6,20 +7,26 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  name = 'Angular ' + VERSION.major;
-  public classUml = [
+  name = 'UML to TS';
+
+  public classUml: classUml[] = [
     {
       name: 'City',
       props: [
-        { name: 'data', type: 'private', ts: 'METADATA' },
-        { name: 'name', type: 'private', ts: 'string' },
+        { name: 'data', accessibility: Eprop.private, ts: 'METADATA' },
+        { name: 'name', accessibility: Eprop.private, ts: 'string' },
 
-        { name: 'level', type: 'private', ts: 'integer' },
-
+        { name: 'level', accessibility: Eprop.private, ts: 'integer' },
       ],
-      methods:[
-        { name: 'upgrade', type: 'private', ts: 'x integer' ,returnTs:"string",text:"return x*x",show:false},
-      ]
+      methods: [
+        {
+          name: 'upgrade',
+          accessibility: Eprop.private,
+          arg: 'x integer',
+          returnTs: 'string',
+          text: 'return x*x',
+        },
+      ],
     },
   ];
 }

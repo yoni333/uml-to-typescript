@@ -8,3 +8,6 @@ p {
   border-radius: 5px;
   padding: 0.2rem;
 }
+.open:hover {
+  cursor: pointer;
+}
