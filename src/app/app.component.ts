@@ -1,5 +1,5 @@
 import { Component, VERSION } from '@angular/core';
-import { classUml, Eprop } from './class.type';
+import { classUml, Eclass, Eprop } from './class.type';
 
 @Component({
   selector: 'my-app',
@@ -12,16 +12,17 @@ export class AppComponent {
   public classUml: classUml[] = [
     {
       name: 'City',
+      type:Eclass.Regular,
       props: [
-        { name: 'data', accessibility: Eprop.private, ts: 'METADATA' },
-        { name: 'name', accessibility: Eprop.private, ts: 'string' },
+        { name: 'data', accessibility: Eprop.Private, type: 'METADATA' },
+        { name: 'name', accessibility: Eprop.Private, type: 'string' },
 
-        { name: 'level', accessibility: Eprop.private, ts: 'integer' },
+        { name: 'level', accessibility: Eprop.Private, type: 'integer' },
       ],
       methods: [
         {
           name: 'upgrade',
-          accessibility: Eprop.private,
+          accessibility: Eprop.Private,
           arg: 'x integer',
           returnTs: 'string',
           text: 'return x*x',
@@ -30,23 +31,24 @@ export class AppComponent {
     },
     {
       name: 'Barracks',
+      type:Eclass.Regular,
       props: [
-        { name: 'data', accessibility: Eprop.private, ts: 'METADATA' },
-        { name: 'name', accessibility: Eprop.private, ts: 'string' },
+        { name: 'data', accessibility: Eprop.Private, type: 'METADATA' },
+        { name: 'name', accessibility: Eprop.Private, type: 'string' },
 
-        { name: 'level', accessibility: Eprop.private, ts: 'integer' },
+        { name: 'level', accessibility: Eprop.Private, type: 'integer' },
       ],
       methods: [
         {
           name: 'upgrade',
-          accessibility: Eprop.private,
+          accessibility: Eprop.Private,
           arg: 'x integer',
           returnTs: 'string',
           text: 'return x*x',
         },
         {
           name: 'build',
-          accessibility: Eprop.public,
+          accessibility: Eprop.Public,
           arg: 'x integer',
           returnTs: 'string',
           text: 'return x+x+2',

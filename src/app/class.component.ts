@@ -10,10 +10,10 @@ import { classUml, method, prop, Eprop } from './class.type';
     <ng-container *ngIf="show">
       <hr />
       <div *ngFor="let prop of class.props">
-        <prop *ngIf="prop.accessibility===Eprop.private" [prop]="prop"></prop>
+        <prop *ngIf="prop.accessibility===Eprop.Private" [prop]="prop"></prop>
       </div>
       <div *ngFor="let prop of class.props">
-      <prop *ngIf="prop.accessibility===Eprop.public" [prop]="prop"></prop>
+      <prop *ngIf="prop.accessibility===Eprop.Public" [prop]="prop"></prop>
     </div>
       <hr />
       <div *ngFor="let method of class.methods">

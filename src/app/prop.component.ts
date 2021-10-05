@@ -4,7 +4,7 @@ import { prop } from './class.type';
 type propEdit = {
   name: boolean;
   accessibility: boolean;
-  ts: boolean;
+  type: boolean;
   value: boolean;
 };
 type propView = { data: prop; show: boolean; edit: propEdit };
@@ -22,7 +22,7 @@ export type editMethod = {
 
   <accessibility [prop]=propView.data></accessibility>
   <b>{{ propView.data.name }} </b>
-  <span>{{ propView.data.ts }} </span>
+  <span>{{ propView.data.type }} </span>
   `,
   styles: [`h1 { font-family: Lato; }`],
 })
@@ -37,6 +37,6 @@ export class PropComponent {
   }
 
   createEditProp(): propEdit {
-    return { name: false, accessibility: false, ts: false, value: false };
+    return { name: false, accessibility: false, type: false, value: false };
   }
 }
