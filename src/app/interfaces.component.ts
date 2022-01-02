@@ -4,21 +4,24 @@ import { classUml, interfaceUml } from './class.type';
 @Component({
   selector: 'interfaces',
   template: ` 
+
+ 
   <section  class="class-uml">
-    <span>{{ interface.name }}</span>
-    <span (click)="show= !show" class="open">&#123; + &#125;</span>
-    <ng-container *ngIf="show">
-      <hr />
+  <span>{{ interface.name }}</span>
+  <span (click)="show= !show" class="open">&#123; + &#125;</span>
+  <ng-container *ngIf="show">
+    <hr />
 
-      <props [props]=interface.props></props>
-      <hr />
+    <props [props]=interface.props  [isInterface]=true></props>
+    <hr />
 
-      <div *ngFor="let method of interface.methods">
-        <interface-method [method]="method"></interface-method>
-      </div>
+    <div *ngFor="let method of interface.methods">
+      <interface-method [method]="method"></interface-method>
+    </div>
 
-    </ng-container>
-  </section>
+  </ng-container>
+</section>
+ 
   `,
   styleUrls: ['./class.component.css'],
 })

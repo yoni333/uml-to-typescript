@@ -18,13 +18,21 @@ export class AppComponent {
         { name: 'name', accessibility: Eprop.Private, type: 'string' },
 
         { name: 'level', accessibility: Eprop.Private, type: 'integer' },
+        { name: 'buildings', accessibility: Eprop.Private, type: 'IBuilding' },
       ],
       methods: [
         {
           name: 'upgrade',
           accessibility: Eprop.Private,
+          arg: '',
+          returnTs: 'boolean',
+          text: 'upgradeCost();return true',
+        },
+        {
+          name: 'upgradeCost',
+          accessibility: Eprop.Private,
           arg: 'x integer',
-          returnTs: 'string',
+          returnTs: 'integer',
           text: 'return x*x',
         },
       ],
@@ -57,7 +65,7 @@ export class AppComponent {
     },
   ];
 
-  public interfaceUml: interfaceUml[] = [
+  public interfacesUml: interfaceUml[] = [
     {
       name: 'IBuilding',
       props: [
@@ -65,6 +73,7 @@ export class AppComponent {
         { name: 'name', accessibility: Eprop.Private, type: 'string' },
 
         { name: 'level', accessibility: Eprop.Private, type: 'integer' },
+        { name: 'cost', accessibility: Eprop.Private, type: 'IResource[]' },
       ],
       methods: [
         {
@@ -76,6 +85,25 @@ export class AppComponent {
           name: 'build',
           arg: 'x integer',
           returnTs: 'string',
+        },
+      ],
+    },
+    {
+      name: 'IResource',
+      props: [
+        { name: 'name', accessibility: Eprop.Private, type: 'string' },
+        { name: 'amount', accessibility: Eprop.Private, type: 'string' },
+      ],
+      methods: [
+        {
+          name: 'add',
+          arg: 'x integer',
+          returnTs: 'integer',
+        },
+        {
+          name: 'sub',
+          arg: 'x integer',
+          returnTs: 'integer',
         },
       ],
     },

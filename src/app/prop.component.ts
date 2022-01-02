@@ -21,7 +21,9 @@ export type editMethod = {
   selector: 'prop',
   template: ` 
 
-  <accessibility [prop]=propView.data [isMEthod]=false ></accessibility>
+  <ng-container *ngIf="!isInterface">
+    <accessibility [prop]=propView.data [isMEthod]=false ></accessibility>
+  </ng-container>
   <b>{{ propView.data.name }} </b>
   <span>{{ propView.data.type }} </span>
   `,
@@ -29,6 +31,7 @@ export type editMethod = {
 })
 export class PropComponent {
   public propView: propView;
+  @Input() isInterface: boolean;
   @Input() set prop(prop: prop) {
     this.propView = { data: prop, show: true, edit: this.createEditProp() };
   }
@@ -46,11 +49,11 @@ export class PropComponent {
   selector: 'props',
   template: ` 
   <div *ngFor="let prop of props">
-        <prop *ngIf="prop.accessibility===Eprop.Private" [prop]="prop"></prop>
+        <prop *ngIf="prop.accessibility===Eprop.Private" [prop]="prop"  [isInterface]=isInterface></prop>
       </div>
 
       <div *ngFor="let prop of props">
-        <prop *ngIf="prop.accessibility===Eprop.Public" [prop]="prop"></prop>
+        <prop *ngIf="prop.accessibility===Eprop.Public" [prop]="prop"  [isInterface]=isInterface></prop>
       </div>
 
   `,
@@ -59,4 +62,5 @@ export class PropComponent {
 export class PropsComponent {
   Eprop = Eprop;
   @Input() props: prop[];
+  @Input() isInterface: boolean;
 }

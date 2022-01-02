@@ -10,7 +10,7 @@ import { classUml } from './class.type';
     <ng-container *ngIf="show">
       <hr />
 
-      <props [props]=class.props></props>
+      <props [props]=class.props [isInterface]=false></props>
       <hr />
 
       <div *ngFor="let method of class.methods">

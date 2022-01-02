@@ -18,7 +18,6 @@ export type methodEdit = methodInterfaceEdit & {
 @Component({
   selector: 'interface-method',
   template: ` 
-
  
     <span>{{ methodView.data.name }} </span>
     <span> ( {{ methodView.data.arg }} ) </span>
