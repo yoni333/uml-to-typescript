@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { method, prop } from './class.type';
+import { methodUml, prop } from './class.type';
 
 @Component({
   selector: 'accessibility',
@@ -7,7 +7,7 @@ import { method, prop } from './class.type';
   <ng-container *ngIf="accessibility; else propEditType">
     <span  >
     
-    <select [(ngModel)]="prop.accessibility" (mouseleave)="accessibility = !accessibility">
+    <select [(ngModel)]="prop.accessibility" (ngModelChange)="log($event)" (mouseleave)="accessibility = !accessibility">
       <option value="{{prop.accessibility}}">{{prop.accessibility}}</option>
       <hr>
         <option value="private">private</option>
@@ -27,7 +27,10 @@ import { method, prop } from './class.type';
   styles: [`.accessibility-color {color:blue}`],
 })
 export class AccessibilityComponent {
-  @Input() prop: prop | method;
+  @Input() prop: prop | methodUml;
   @Input() isMEthod: boolean;
   accessibility: boolean = false;
+  log(e) {
+    console.log(e, this.prop);
+  }
 }

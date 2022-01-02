@@ -1,24 +1,62 @@
 import { Component, Input } from '@angular/core';
-import { method } from './class.type';
+import { interfaceMethodUml, methodUml } from './class.type';
 
-type methodView = { data: method; show: boolean; edit: methodEdit };
+type wrapper = { show: boolean; edit: methodInterfaceEdit };
+type methodInterfaceView = wrapper & { data: interfaceMethodUml };
+type methodView = wrapper & { data: methodUml; edit: methodEdit };
 
-export type methodEdit = {
+export type methodInterfaceEdit = {
   name: boolean;
-  accessibility: boolean;
   arg: boolean;
   returnTs: boolean;
+};
+export type methodEdit = methodInterfaceEdit & {
+  accessibility: boolean;
   text: boolean;
 };
+
+@Component({
+  selector: 'interface-method',
+  template: ` 
+
+ 
+    <span>{{ methodView.data.name }} </span>
+    <span> ( {{ methodView.data.arg }} ) </span>
+    <span>:{{ methodView.data.returnTs }} </span>
+  
+ 
+`,
+  styles: [`h1 { font-family: Lato; }`],
+})
+export class InterfaceMethodComponent {
+  public methodView: methodInterfaceView;
+  @Input() set method(method: interfaceMethodUml) {
+    this.methodView = {
+      data: method,
+      show: true,
+      edit: this.createEditMethod(),
+    };
+  }
+
+  get method(): interfaceMethodUml {
+    return this.methodView.data;
+  }
+
+  createEditMethod(): methodInterfaceEdit {
+    return {
+      name: false,
+      arg: false,
+      returnTs: false,
+    };
+  }
+}
 
 @Component({
   selector: 'method',
   template: ` 
   <b>
   <accessibility [prop]=methodView.data [isMEthod]=true></accessibility>
-    <span>{{ methodView.data.name }} </span>
-    <span> ( {{ methodView.data.arg }} ) </span>
-    <span>:{{ methodView.data.returnTs }} </span>
+   <interface-method [method]="" ></interface-method>
     <span (click)="methodView.edit.text= !methodView.edit.text" class="open">&#123; + &#125;</span>
   </b>
   <div *ngIf="methodView.edit.text">
@@ -31,15 +69,21 @@ export type methodEdit = {
 })
 export class MethodComponent {
   public methodView: methodView;
-  @Input() set method(method: method) {
+  public interfaceMethod: interfaceMethodUml;
+  @Input() set method(method: methodUml) {
     this.methodView = {
       data: method,
       show: true,
       edit: this.createEditMethod(),
     };
+    this.interfaceMethod = {
+      name: method.name,
+      arg: method.arg,
+      returnTs: method.returnTs,
+    };
   }
 
-  get method(): method {
+  get method(): methodUml {
     return this.methodView.data;
   }
 

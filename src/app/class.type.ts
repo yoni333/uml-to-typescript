@@ -34,7 +34,7 @@ export type functionUml = interfaceMethodUml & {
   text: string;
 };
 
-export type method = functionUml & {
+export type methodUml = functionUml & {
   accessibility: Eprop;
 };
 
@@ -42,7 +42,7 @@ export type classUml = {
   type: Eclass;
   name: string;
   props: prop[];
-  methods: method[];
+  methods: methodUml[];
 };
 
 export type interfaceUml = classUml;
