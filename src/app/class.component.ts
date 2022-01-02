@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { classUml, Eprop } from './class.type';
+import { classUml } from './class.type';
 
 @Component({
   selector: 'class',
@@ -10,14 +10,7 @@ import { classUml, Eprop } from './class.type';
     <ng-container *ngIf="show">
       <hr />
 
-      <div *ngFor="let prop of class.props">
-        <prop *ngIf="prop.accessibility===Eprop.Private" [prop]="prop"></prop>
-      </div>
-
-      <div *ngFor="let prop of class.props">
-        <prop *ngIf="prop.accessibility===Eprop.Public" [prop]="prop"></prop>
-      </div>
-
+      <props [props]=class.props></props>
       <hr />
 
       <div *ngFor="let method of class.methods">
@@ -30,7 +23,7 @@ import { classUml, Eprop } from './class.type';
   styleUrls: ['./class.component.css'],
 })
 export class ClassComponent {
-  Eprop = Eprop;
+ 
   @Input() class: classUml;
   show: boolean = true;
 }

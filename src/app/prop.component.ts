@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { prop } from './class.type';
+import { Eprop } from './class.type';
 
 type propEdit = {
   name: boolean;
@@ -39,4 +40,23 @@ export class PropComponent {
   createEditProp(): propEdit {
     return { name: false, accessibility: false, type: false, value: false };
   }
+}
+
+@Component({
+  selector: 'props',
+  template: ` 
+  <div *ngFor="let prop of props">
+        <prop *ngIf="prop.accessibility===Eprop.Private" [prop]="prop"></prop>
+      </div>
+
+      <div *ngFor="let prop of props">
+        <prop *ngIf="prop.accessibility===Eprop.Public" [prop]="prop"></prop>
+      </div>
+
+  `,
+  styles: [`h1 { font-family: Lato; }`],
+})
+export class PropsComponent {
+  Eprop = Eprop;
+  @Input() props: prop[];
 }
