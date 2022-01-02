@@ -9,16 +9,21 @@ import { classUml, method, prop, Eprop } from './class.type';
     <span (click)="show= !show" class="open">&#123; + &#125;</span>
     <ng-container *ngIf="show">
       <hr />
+
       <div *ngFor="let prop of class.props">
         <prop *ngIf="prop.accessibility===Eprop.Private" [prop]="prop"></prop>
       </div>
+
       <div *ngFor="let prop of class.props">
-      <prop *ngIf="prop.accessibility===Eprop.Public" [prop]="prop"></prop>
-    </div>
+        <prop *ngIf="prop.accessibility===Eprop.Public" [prop]="prop"></prop>
+      </div>
+
       <hr />
+
       <div *ngFor="let method of class.methods">
         <method [method]="method"></method>
       </div>
+      
     </ng-container>
   </section>
   `,

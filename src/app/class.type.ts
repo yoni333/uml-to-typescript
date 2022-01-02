@@ -1,6 +1,8 @@
 export enum Eprop {
   'Private' = 'private',
   'Public' = 'public',
+  'PrivateReadOnly' = 'privateReadOnly',
+  'PublicReadOnly' = 'publicReadOnly',
 }
 
 export enum Eclass {
@@ -14,19 +16,26 @@ export enum Emethod {
   'Static' = 'static',
   'Abstract' = 'abstract',
 }
-export type prop = { name: string; accessibility: Eprop; type: string };
+export type prop = {
+  name: string;
+  accessibility: Eprop;
+  type: string;
+};
 
 type argUml = string;
 
-export type functionUml = {name:string,arg:argUml,returnTs,text:string};
+export type interfaceMethodUml = {
+  name: string;
+  arg: argUml;
+  returnTs: string;
+};
 
-export type method = functionUml &  {
-  // name: string;
-  // type: Emethod;
+export type functionUml = interfaceMethodUml & {
+  text: string;
+};
+
+export type method = functionUml & {
   accessibility: Eprop;
-  // arg: argUml;
-  // returnTs: string;
-  // text: string;
 };
 
 export type classUml = {
@@ -37,4 +46,3 @@ export type classUml = {
 };
 
 export type interfaceUml = classUml;
-

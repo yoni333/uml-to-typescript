@@ -56,4 +56,6 @@ export class AppComponent {
       ],
     },
   ];
+
+  public interfaceUml: classUml[] = []
 }

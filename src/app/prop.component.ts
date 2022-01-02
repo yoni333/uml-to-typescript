@@ -20,7 +20,7 @@ export type editMethod = {
   selector: 'prop',
   template: ` 
 
-  <accessibility [prop]=propView.data></accessibility>
+  <accessibility [prop]=propView.data [isMEthod]=false ></accessibility>
   <b>{{ propView.data.name }} </b>
   <span>{{ propView.data.type }} </span>
   `,

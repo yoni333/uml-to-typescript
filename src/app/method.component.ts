@@ -15,7 +15,7 @@ export type methodEdit = {
   selector: 'method',
   template: ` 
   <b>
-  <accessibility [prop]=methodView.data></accessibility>
+  <accessibility [prop]=methodView.data [isMEthod]=true></accessibility>
     <span>{{ methodView.data.name }} </span>
     <span> ( {{ methodView.data.arg }} ) </span>
     <span>:{{ methodView.data.returnTs }} </span>
