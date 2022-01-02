@@ -45,4 +45,8 @@ export type classUml = {
   methods: methodUml[];
 };
 
-export type interfaceUml = classUml;
+export type interfaceUml = {
+  name: string;
+  props: prop[];
+  methods: interfaceMethodUml[];
+};

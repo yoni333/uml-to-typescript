@@ -8,6 +8,7 @@ import { PropComponent, PropsComponent } from './prop.component';
 import { InterfaceMethodComponent, MethodComponent } from './method.component';
 import { AccessibilityComponent } from './accessibility.component';
 import { ClassComponent } from './class.component';
+import { InterfacesComponent } from './interfaces.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -15,6 +16,7 @@ import { ClassComponent } from './class.component';
     AppComponent,
     HelloComponent,
     ClassComponent,
+    InterfacesComponent,
     MethodComponent,
     InterfaceMethodComponent,
     PropsComponent,

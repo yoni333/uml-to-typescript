@@ -1,5 +1,5 @@
 import { Component, VERSION } from '@angular/core';
-import { classUml, Eclass, Eprop } from './class.type';
+import { classUml, Eclass, Eprop, interfaceUml } from './class.type';
 
 @Component({
   selector: 'my-app',
@@ -12,7 +12,7 @@ export class AppComponent {
   public classUml: classUml[] = [
     {
       name: 'City',
-      type:Eclass.Regular,
+      type: Eclass.Regular,
       props: [
         { name: 'data', accessibility: Eprop.Private, type: 'METADATA' },
         { name: 'name', accessibility: Eprop.Private, type: 'string' },
@@ -31,7 +31,7 @@ export class AppComponent {
     },
     {
       name: 'Barracks',
-      type:Eclass.Regular,
+      type: Eclass.Regular,
       props: [
         { name: 'data', accessibility: Eprop.Private, type: 'METADATA' },
         { name: 'name', accessibility: Eprop.Private, type: 'string' },
@@ -57,5 +57,27 @@ export class AppComponent {
     },
   ];
 
-  public interfaceUml: classUml[] = []
+  public interfaceUml: interfaceUml[] = [
+    {
+      name: 'IBuilding',
+      props: [
+        { name: 'data', accessibility: Eprop.Private, type: 'METADATA' },
+        { name: 'name', accessibility: Eprop.Private, type: 'string' },
+
+        { name: 'level', accessibility: Eprop.Private, type: 'integer' },
+      ],
+      methods: [
+        {
+          name: 'upgrade',
+          arg: 'x integer',
+          returnTs: 'string',
+        },
+        {
+          name: 'build',
+          arg: 'x integer',
+          returnTs: 'string',
+        },
+      ],
+    },
+  ];
 }
