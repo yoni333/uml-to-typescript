@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { PropComponent } from './prop.component';
-import { MethodComponent } from './method.component';
+import { InterfaceMethodComponent, MethodComponent } from './method.component';
 import { AccessibilityComponent } from './accessibility.component';
 import { ClassComponent } from './class.component';
 
@@ -16,6 +16,7 @@ import { ClassComponent } from './class.component';
     HelloComponent,
     ClassComponent,
     MethodComponent,
+    InterfaceMethodComponent,
     PropComponent,
     AccessibilityComponent,
   ],

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { classUml, method, prop, Eprop } from './class.type';
+import { classUml, Eprop } from './class.type';
 
 @Component({
   selector: 'class',
@@ -23,7 +23,7 @@ import { classUml, method, prop, Eprop } from './class.type';
       <div *ngFor="let method of class.methods">
         <method [method]="method"></method>
       </div>
-      
+
     </ng-container>
   </section>
   `,
