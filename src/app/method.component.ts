@@ -56,7 +56,7 @@ export class InterfaceMethodComponent {
   template: ` 
   <b>
   <accessibility [prop]=methodView.data [isMEthod]=true></accessibility>
-   <interface-method [method]="" ></interface-method>
+   <interface-method [method]="interfaceMethod" ></interface-method>
     <span (click)="methodView.edit.text= !methodView.edit.text" class="open">&#123; + &#125;</span>
   </b>
   <div *ngIf="methodView.edit.text">
