@@ -9,6 +9,7 @@ import { InterfaceMethodComponent, MethodComponent } from './method.component';
 import { AccessibilityComponent } from './accessibility.component';
 import { ClassComponent } from './class.component';
 import { InterfacesComponent } from './interfaces.component';
+import { InhertComponent } from './inhert.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -22,6 +23,7 @@ import { InterfacesComponent } from './interfaces.component';
     PropsComponent,
     PropComponent,
     AccessibilityComponent,
+    InhertComponent,
   ],
   bootstrap: [AppComponent],
 })

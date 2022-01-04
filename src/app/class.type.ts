@@ -6,9 +6,15 @@ export enum Eprop {
 }
 
 export enum Eclass {
-  'Regular' = 'regular',
+  'Class' = 'class',
   'Static' = 'static',
   'Abstract' = 'abstract',
+}
+
+export enum EInhert {
+  'None' = 'none',
+  'Implements' = 'implements',
+  'Extend' = 'extend',
 }
 
 export enum Emethod {
@@ -38,8 +44,14 @@ export type methodUml = functionUml & {
   accessibility: Eprop;
 };
 
+export type InhertUml = {
+  type: EInhert;
+  classOrInterface: string;
+};
+
 export type classUml = {
   type: Eclass;
+  inhert: InhertUml;
   name: string;
   props: prop[];
   methods: methodUml[];

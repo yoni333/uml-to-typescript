@@ -1,5 +1,5 @@
 import { Component, VERSION } from '@angular/core';
-import { classUml, Eclass, Eprop, interfaceUml } from './class.type';
+import { classUml, Eclass, EInhert, Eprop, interfaceUml } from './class.type';
 
 @Component({
   selector: 'my-app',
@@ -12,7 +12,8 @@ export class AppComponent {
   public classUml: classUml[] = [
     {
       name: 'City',
-      type: Eclass.Regular,
+      type: Eclass.Class,
+      inhert: { type: EInhert.None, classOrInterface: '' },
       props: [
         { name: 'data', accessibility: Eprop.Private, type: 'METADATA' },
         { name: 'name', accessibility: Eprop.Private, type: 'string' },
@@ -39,7 +40,8 @@ export class AppComponent {
     },
     {
       name: 'Barracks',
-      type: Eclass.Regular,
+      type: Eclass.Class,
+      inhert: { type: EInhert.Implements, classOrInterface: 'IBuilding' },
       props: [
         { name: 'data', accessibility: Eprop.Private, type: 'METADATA' },
         { name: 'name', accessibility: Eprop.Private, type: 'string' },
